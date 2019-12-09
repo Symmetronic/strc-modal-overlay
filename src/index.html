@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Symmetronic Modal Overlay</title>
+
+  <script type="module" src="/build/strc-modal-overlay.esm.js"></script>
+  <script nomodule src="/build/strc-modal-overlay.js"></script>
+
+  <style>
+    strc-modal-overlay {
+      --strc-modal-overlay-background-color: black;
+      --strc-modal-overlay-background-opacity: 0.5;
+      --strc-modal-overlay-foreground-color: white;
+      --strc-modal-overlay-z-index: 5000;
+    }
+  </style>
+
+  <script>
+    function showOverlay() {
+      /* Create overlay. */
+      let overlay = document.createElement('strc-modal-overlay');
+      let text = document.createTextNode('Hello world');
+      overlay.appendChild(text);
+
+      /* Add overlay. */
+      document.body.appendChild(overlay);
+    }
+  </script>
+</head>
+<body>
+
+  <button onclick="showOverlay()">
+    Show overlay
+  </button>
+
+</body>
+</html>

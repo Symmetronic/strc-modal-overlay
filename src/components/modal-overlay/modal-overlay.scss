@@ -1,0 +1,132 @@
+/*
+ * Variables.
+ */
+/* Animation durations. */
+$animate-in-duration: 750ms;
+
+/* Screen breakpoints. */
+$screen-width-s: 36rem;
+$screen-width-m: 48rem;
+$screen-width-l: 62rem;
+$screen-width-xl: 75rem;
+
+/* Padding and margin sizes. */
+$size-s: 1rem;
+$size-m: 3rem;
+$size-l: 5rem;
+$size-xl: 8rem;
+
+/*
+ * Animations.
+ */
+@keyframes fadeIn {
+  from { opacity: 0.0; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0.0; }
+}
+
+@keyframes paddingIn {
+  0% {
+    padding: 0;
+  }
+  99% {
+    overflow: hidden;
+  }
+  100% {
+    overflow-y: auto;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    padding: 0;
+  }
+  100% {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+/*
+ * Styling.
+ */
+:host {
+  & > div {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5000;
+    z-index: var(--strc-modal-overlay-z-index, 5000);
+
+    &.fadeOut {
+      animation-fill-mode: forwards;
+      animation-name: fadeOut;
+      animation-timing-function: ease-in;
+      pointer-events: none;
+    }
+
+    .background {
+      animation-duration: $animate-in-duration;
+      animation-name: fadeIn;
+      animation-timing-function: ease;
+      background-color: #000000;
+      background-color: var(--strc-modal-overlay-background-color, #000000);
+      cursor: pointer;
+      height: 100%;
+      opacity: 0.5;
+      opacity: var(--strc-modal-overlay-background-opacity, 0.5);
+      width: 100%;
+    }
+
+    .content {
+      animation-duration: $animate-in-duration;
+      animation-fill-mode: forwards;
+      animation-name: zoomIn;
+      animation-timing-function: ease;
+      box-sizing: border-box;
+      overflow: hidden;
+      padding: 0 $size-m 0 0;
+      pointer-events: none;
+      position: fixed;
+      
+      @media screen and (min-width: $screen-width-s) {
+        padding: 0 $size-xl 0 0;
+      }
+
+      @media screen and (min-width: $screen-width-l) {
+        padding: 0 $size-xl;
+      }
+
+      @media screen and (min-width: $screen-width-xl) {
+        padding: 0 20%;
+      }
+
+      & > div {
+        animation-duration: $animate-in-duration;
+        animation-fill-mode: forwards;
+        animation-name: paddingIn;
+        animation-timing-function: ease;
+        background-color: #ffffff;
+        background-color: var(--strc-modal-overlay-foreground-color, #ffffff);
+        box-sizing: border-box;
+        height: 100%;
+        padding: $size-s;
+        pointer-events: auto;
+
+        @media screen and (min-width: $screen-width-s) {
+          padding: $size-m $size-l;
+        }
+
+        @media screen and (min-width: $screen-width-m) {
+          padding: $size-m;
+        }
+      }
+    }
+  }
+}
