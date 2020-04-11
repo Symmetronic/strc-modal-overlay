@@ -8,7 +8,7 @@ A modal overlay web component.
 
 ### Script tag
 
-- Put the following script tag `<script src='https://unpkg.com/strc-modal-overlay@1.0.0/dist/strc-modal-overlay.js'></script>` in the head of your index.html
+- Put the following script tag `<script src='https://unpkg.com/strc-modal-overlay@1.0.1/dist/strc-modal-overlay.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, HTML, etc.
 
 ### Node Modules
@@ -20,7 +20,7 @@ A modal overlay web component.
 ### In a stencil-starter app
 
 - Run `npm install strc-modal-overlay --save`
-- Add an import to the npm packages `import strc-modal-overlay;`
+- Add an import to the npm packages `import 'strc-modal-overlay';`
 - Then you can use the element anywhere in your template, JSX, HTML, etc.
 
 ## API
